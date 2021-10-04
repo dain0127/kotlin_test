@@ -1,6 +1,6 @@
 package com.example.hello
 
-open class Human (name:String="[No name]"){
+open class Hu (name:String="[No name]"){
 
     //부생성자의 의미 : 선택적 paramater
     //constuctor : 선택적 paramater에 대한 statment
@@ -63,7 +63,7 @@ open class Human (name:String="[No name]"){
     }
 }
 
-class Korean(name:String):Human(name){
+class Korean(name:String):Hu(name){
     override fun eat(food:String):String?{
         if(energy>=100)
             return "full"
@@ -84,14 +84,29 @@ class Korean(name:String):Human(name){
 }
 
 fun main(){
-    val man1 = Korean("철수")
-    for(i in 0..20) {
-        man1.eat("noodle")?.let{
-            println("${man1.name} is ${it}")
+    val koreans = arrayListOf<Korean>(Korean("철수"),
+        Korean("영희"),Korean("민수"))
+    var day=0
+    var step=0
+
+    for(i in 0 until koreans.size) {
+        while (day < 7) {
+            println("day : ${day}")
+            when (step) {
+                0 -> koreans[i].eat("noodle")?.let {
+                    println("${koreans[i].name} is ${it}")
+                    step++
+                }
+                1 -> koreans[i].run(1)?.let {
+                    println("${koreans[i].name} is ${it}")
+                    step++
+                }
+                2 -> koreans[i].sleep(2)?.let {
+                    println("${koreans[i].name} is ${it}")
+                    day++
+                    step = 0
+                }
+            }
         }
     }
-}
-
-fun test(str:String?){
-
 }
