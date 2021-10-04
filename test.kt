@@ -1,6 +1,6 @@
 package com.example.hello
 
-open class Hu (name:String="[No name]"){
+open class Human (name:String="[No name]"){
 
     //부생성자의 의미 : 선택적 paramater
     //constuctor : 선택적 paramater에 대한 statment
@@ -63,7 +63,7 @@ open class Hu (name:String="[No name]"){
     }
 }
 
-class Korean(name:String):Hu(name){
+class Korean(name:String):Human(name){
     override fun eat(food:String):String?{
         if(energy>=100)
             return "full"
