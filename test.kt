@@ -80,6 +80,7 @@ class Korean(name:String):Human(name){
 
         sleep_time-=2
         return null
+        //?
     }
 }
 
